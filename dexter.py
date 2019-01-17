@@ -1,25 +1,26 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from time import sleep
-from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support.ui import Select
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-from selenium.common.exceptions import NoSuchElementException
 import time
  
 post = input("what do you want to post on facebook? : ")
+id = input("E-mail : ")
+pw = input("Password : ")
 driver = webdriver.Firefox()
+
 driver.get('https://www.facebook.com/')
 print("Opened facebook...")
 time.sleep(2)
+
 email = driver.find_element_by_xpath("//input[@id='email' or @name='email']")
-email.send_keys('arnabhattacharya10@gmail.com')
+email.send_keys(id)
 print("Email Id entered...")
+time.sleep(2)
+
 password = driver.find_element_by_xpath("//input[@id='pass']")
-password.send_keys('Arnab2016*')
+password.send_keys(pw)
 print("Password entered...")
+time.sleep(2)
+
 button = driver.find_element_by_xpath("//input[@id='u_0_2' or @value='Log In']")
 button.click()
 print("logged in...")
